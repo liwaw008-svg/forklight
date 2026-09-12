@@ -10,6 +10,7 @@ def prepared(direct_vm,direct_deploy,direct_alice):
     contract.seal('night-bus',*FIELDS,EVIDENCE)
     for host,body in zip(('archive.example','lab.example','review.example'),BODIES): direct_vm.mock_web(host.replace('.',r'\.'),{'status':200,'body':body.decode()})
     direct_vm.mock_llm(r'.*Forklight counterfactual.*','{"path":"ACT","confidence":"HIGH","baseline_score":42,"intervention_score":71,"supporting":[0,1],"opposing":[2]}')
+    direct_vm.mock_llm(r'.*Forklight forecast verifier.*','{"valid":true}')
     return contract
 
 def test_forecast_binds_scores_indexes_and_digests(direct_vm,direct_deploy,direct_alice):
@@ -25,7 +26,7 @@ def test_duplicate_origins_and_ids_fail(direct_vm,direct_deploy,direct_alice):
 def test_validator_rejects_forged_attribution(direct_vm,direct_deploy,direct_alice):
     contract=prepared(direct_vm,direct_deploy,direct_alice); result=contract._project(contract.forecasts['NIGHT-BUS'])
     assert direct_vm.run_validator(leader_result=result) is True
-    forged=dict(result); forged['intervention_score']=99
+    forged=dict(result); forged['intervention_score']=12
     assert direct_vm.run_validator(leader_result=forged) is False
     forged=dict(result); forged['digests']=list(reversed(result['digests']))
     assert direct_vm.run_validator(leader_result=forged) is False
@@ -37,6 +38,6 @@ def test_independent_observation_and_calibration(direct_vm,direct_deploy,direct_
     contract.observe('night-bus','Median wait time fell by nine minutes across the measured routes.',observation)
     direct_vm.mock_web(r'transit\.example',{'status':200,'body':'Published route-level wait-time data.'}); direct_vm.mock_web(r'audit\.example',{'status':200,'body':'Independent audit confirms the direction.'})
     direct_vm.mock_llm(r'.*Forklight calibration.*','{"outcome":"BETTER","calibration":"ACCURATE"}')
+    direct_vm.mock_llm(r'.*Forklight calibration verifier.*','{"valid":true}')
     contract.calibrate('night-bus'); closed=contract.get_forecast('night-bus')
     assert closed['stage']=='CLOSED' and closed['outcome']=='BETTER' and closed['calibration']=='ACCURATE'
-
