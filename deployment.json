@@ -1,0 +1,17 @@
+{
+  "network": "StudioNet",
+  "chainId": 61999,
+  "contractAddress": "0x59Ff026b5c29eeC5d1e470310607B4Da7D4E5E94",
+  "deploymentTransaction": "0xd630921b46acc4eed9078046fc8ad740289ac813eabf4b7d7385ecff26971345",
+  "deploymentStatus": "FINALIZED",
+  "deploymentExecution": "SUCCESS",
+  "sourceCommit": "e46d8a7",
+  "sourceMatchVerified": true,
+  "smokeSealTransaction": "0xe1e4d9b21c84896d813e26eff17b51b8931cd1218f4fac2bf2e8cccf2253773f",
+  "smokeIlluminateTransaction": "0x98b9a85059b29097d6423ac932979c88ba677fe7c8557b8e14429201e782c23a",
+  "smokeStatus": "FINALIZED",
+  "smokeExecution": "SUCCESS",
+  "smokeRecordId": "LIVE-1789228479",
+  "smokeRecordStage": "FORKED",
+  "publicSite": "https://liwaw008-svg.github.io/forklight/"
+}

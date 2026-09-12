@@ -8,7 +8,7 @@ from genlayer_py.chains import studionet
 
 
 ROOT = Path(__file__).parents[1]
-ADDRESS = "0x5a25c18d8e33447766c625D94cAD02e12bcB0Bf4"
+ADDRESS = "0x59Ff026b5c29eeC5d1e470310607B4Da7D4E5E94"
 
 
 def client_for_account():
