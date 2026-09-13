@@ -3,4 +3,4 @@ __pycache__/
 artifacts/
 .env
 node_modules/
-
+.wrangler/

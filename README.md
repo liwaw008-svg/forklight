@@ -1,6 +1,6 @@
 # Forklight
 
-[Open the live instrument](https://liwaw008-svg.github.io/forklight/) · [Inspect the StudioNet contract](https://explorer-studio.genlayer.com/address/0x59Ff026b5c29eeC5d1e470310607B4Da7D4E5E94)
+[Open the live instrument](https://forklight.pages.dev/) · [Inspect the StudioNet contract](https://explorer-studio.genlayer.com/address/0x59Ff026b5c29eeC5d1e470310607B4Da7D4E5E94)
 
 Forklight is a GenLayer counterfactual ledger. It records a real decision as two comparable worlds—the status quo and a proposed intervention—then asks validators to inspect three independent public records and bind a forecast to exact evidence indexes and byte digests.
 
